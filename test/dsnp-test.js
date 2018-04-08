@@ -2,10 +2,12 @@
 /* eslint prefer-arrow-callback: "off" */
 
 'use strict';
+const DSNP = require('../lib/dsnp');
 const assert = require('assert');
 
 describe('DSNP', function () {
-  it('dummy', async () =>{
-    assert.equal(1,1);
+  it('gets the network', async () =>{
+    var options = {'network': 'unittest'}
+    var dsnp = new DSNP(options)
   });
 });
