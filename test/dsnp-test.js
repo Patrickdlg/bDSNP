@@ -11,4 +11,10 @@ describe('DSNP', function () {
     var dsnp = new DSNP(options)
     assert.equal(dsnp.network, options['network'])
   });
+  it('creates http and ws servers', async () =>{
+    var options = {'network': 'unittest'}
+    var dsnp = new DSNP(options)
+    assert(dsnp.httpApp)
+    assert(dsnp.wsApp)
+  });
 });
