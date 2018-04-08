@@ -4,7 +4,7 @@
 'use strict';
 const assert = require('assert');
 
-describe('Dsnp', function () {
+describe('DSNP', function () {
   it('dummy', async () =>{
     assert.equal(1,1);
   });
