@@ -1,6 +1,6 @@
 {
   "name": "bdsnp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Bcoin general p2p session negotiation",
   "main": "./lib/bDSNP.js",
   "directories": {
