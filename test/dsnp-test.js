@@ -53,14 +53,35 @@ describe('DSNP messaging', function () {
     assert.equal(dsnp.clients[1].origin, socket_bob.origin);
     assert.equal(dsnp.clients[0].resource, socket_alice.resource);
     assert.equal(dsnp.clients[1].resource, socket_bob.resource);
+    dsnp.httpApp.close();
   });
 
   it('removes users', async () =>{
+    var dsnp = new DSNP(options);
+    dsnp.wsApp.emit('request', socket_alice);
+    dsnp.wsApp.emit('request', socket_bob);
+    var bob = dsnp.clients[1];
+    bob.emit('close');
+    assert.equal(dsnp.clients.length, 1);
+    assert.equal(dsnp.clients[0].origin, socket_alice.origin);
+    assert.equal(dsnp.clients[0].resource, socket_alice.resource);
+    var alice = dsnp.clients[0];
+    alice.emit('close');
+    assert.equal(dsnp.clients.length, 0);
+    dsnp.httpApp.close();
   });
 
   it('handles utf messages', async () =>{
+    var dsnp = new DSNP(options);
+    dsnp.wsApp.emit('request', socket_alice);
+    dsnp.wsApp.emit('request', socket_bob);
+    dsnp.httpApp.close();
   });
 
   it('handles binary messages', async () =>{
+    var dsnp = new DSNP(options);
+    dsnp.wsApp.emit('request', socket_alice);
+    dsnp.wsApp.emit('request', socket_bob);
+    dsnp.httpApp.close();
   });
 });
