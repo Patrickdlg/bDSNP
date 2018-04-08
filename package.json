@@ -1,0 +1,40 @@
+{
+  "name": "dsmp",
+  "version": "0.0.1",
+  "description": "Bcoin general p2p session negotiation",
+  "main": "./lib/dsmp.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "eslint lib/ test/ || exit 0",
+    "test": "mocha --reporter spec test/*-test.js",
+    "docs": "jsdoc -c jsdoc.json",
+    "cover": "istanbul cover node_modules/.bin/_mocha  -- --reporter spec test/*-test.js",
+    "clean": "rm -rf coverage && rm -rf docs"
+  },
+  "keywords": [
+    "bcoin",
+    "plugin",
+    "indexing",
+    "indexer",
+    "index"
+  ],
+  "author": "qwertyPie",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypto": "^0.2.0",
+    "bdb": "0.0.2",
+    "bevent": "0.0.2",
+    "blgr": "0.0.1",
+    "bmutex": "0.0.1",
+    "bufio": "0.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "istanbul": "^1.1.0-alpha.1",
+    "jsdoc": "^3.5.5",
+    "mocha": "^5.0.1"
+  }
+}
