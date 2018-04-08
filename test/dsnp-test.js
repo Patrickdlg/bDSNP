@@ -83,7 +83,12 @@ describe('DSNP messaging', function () {
     dsnp.wsApp.emit('request', socket_alice);
     dsnp.wsApp.emit('request', socket_bob);
     var alice = dsnp.clients[0];
+    var bob = dsnp.clients[1];
     alice.emit('message', {'type': 'utf8', 'utf8Data': specialData});
+    assert(!alice.utfData);
+    assert(!alice.byteData);
+    assert.equal(bob.utfData, specialData);
+    assert(!bob.byteData);
     dsnp.httpApp.close();
   });
 
@@ -92,7 +97,12 @@ describe('DSNP messaging', function () {
     dsnp.wsApp.emit('request', socket_alice);
     dsnp.wsApp.emit('request', socket_bob);
     var alice = dsnp.clients[0];
+    var bob = dsnp.clients[1];
     alice.emit('message', {'type': 'binary', 'binaryData': specialData});
+    assert(!alice.utfData);
+    assert(!alice.byteData);
+    assert(!bob.utfData);
+    assert.equal(bob.byteData, specialData);
     dsnp.httpApp.close();
   });
 });
