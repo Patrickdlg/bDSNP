@@ -11,3 +11,5 @@ run your bcoin node and specify the module as a plugin.
 
 that's really it. clone and run `make test` if you're really concerned
 
+## docs
+to generate documentation, run `make docs`
