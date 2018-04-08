@@ -1,2 +1,2 @@
 # bDSNP
-A decentralized session negotiation protocol for bcoin.
+bDSNP is a [bcoin][bcoin] plugin that implements DSNP, a decentralized session negotiation protocol.

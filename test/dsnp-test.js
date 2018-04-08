@@ -9,5 +9,6 @@ describe('DSNP', function () {
   it('gets the network', async () =>{
     var options = {'network': 'unittest'}
     var dsnp = new DSNP(options)
+    assert.equal(dsnp.network, options['network'])
   });
 });
