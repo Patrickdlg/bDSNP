@@ -29,7 +29,9 @@
     "bevent": "0.0.2",
     "blgr": "0.0.1",
     "bmutex": "0.0.1",
-    "bufio": "0.0.3"
+    "bufio": "0.0.3",
+    "node-static": "^0.7.10",
+    "websocket": "^1.0.25"
   },
   "devDependencies": {
     "eslint": "^4.17.0",
