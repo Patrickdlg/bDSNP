@@ -39,6 +39,12 @@ class FakeAcceptedSocket extends EventEmitter{
     this.origin = fakeSocket.origin
     this.resource = fakeSocket.resource
   }
+  sendUTF(data){
+    this.utfData = data;
+  }
+  sendBytes(data){
+    this.byteData = data;
+  }
 }
 
 describe('DSNP messaging', function () {
@@ -71,10 +77,13 @@ describe('DSNP messaging', function () {
     dsnp.httpApp.close();
   });
 
+  var specialData = 'arethesebytesorutf8?'
   it('handles utf messages', async () =>{
     var dsnp = new DSNP(options);
     dsnp.wsApp.emit('request', socket_alice);
     dsnp.wsApp.emit('request', socket_bob);
+    var alice = dsnp.clients[0];
+    alice.emit('message', {'type': 'utf8', 'utf8Data': specialData});
     dsnp.httpApp.close();
   });
 
@@ -82,6 +91,8 @@ describe('DSNP messaging', function () {
     var dsnp = new DSNP(options);
     dsnp.wsApp.emit('request', socket_alice);
     dsnp.wsApp.emit('request', socket_bob);
+    var alice = dsnp.clients[0];
+    alice.emit('message', {'type': 'binary', 'binaryData': specialData});
     dsnp.httpApp.close();
   });
 });
