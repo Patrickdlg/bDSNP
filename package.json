@@ -1,6 +1,6 @@
 {
   "name": "bdsnp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bcoin general p2p session negotiation",
   "main": "./lib/bDSNP.js",
   "directories": {
@@ -22,6 +22,10 @@
     "index"
   ],
   "author": "qwertyPie",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Patrickdlg/bDSNP"
+  },
   "license": "MIT",
   "dependencies": {
     "bcrypto": "^0.2.0",
